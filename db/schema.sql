@@ -25,36 +25,26 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Collection`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Collection` (
-  `collection_id` INT NOT NULL AUTO_INCREMENT,
-  `legal_name` VARCHAR(45) NOT NULL,
-  `date_collected` DATETIME NOT NULL,
-  PRIMARY KEY (`collection_id`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
 -- Table `mydb`.`Items`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Items` (
   `item_id` INT NOT NULL AUTO_INCREMENT,
   `type_id` INT NOT NULL,
-  `collection_id` INT NULL,
+  `date_found` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `location_found` VARCHAR(100) NULL,
   `description` VARCHAR(500) NULL,
-  `date_found` DATETIME NOT NULL,
+  `contacted_owner` TINYINT(1) NOT NULL DEFAULT 0,
+  `inventory_location` VARCHAR(45) NULL,
+  `address` VARCHAR(100) NULL,
+  `phone` VARCHAR(45) NULL,
+  `email` VARCHAR(45) NULL,
+  `officer` VARCHAR(45) NULL,
+  `report_number` VARCHAR(45) NULL,
   PRIMARY KEY (`item_id`),
   INDEX `fk_Items_Item_Types_idx` (`type_id` ASC),
-  INDEX `fk_Items_Collection1_idx` (`collection_id` ASC),
   CONSTRAINT `fk_Items_Item_Types`
     FOREIGN KEY (`type_id`)
     REFERENCES `mydb`.`Item_Types` (`type_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Items_Collection1`
-    FOREIGN KEY (`collection_id`)
-    REFERENCES `mydb`.`Collection` (`collection_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
