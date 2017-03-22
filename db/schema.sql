@@ -5,19 +5,19 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema lostfound
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema lostfound
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
-USE `mydb` ;
+CREATE SCHEMA IF NOT EXISTS `lostfound` DEFAULT CHARACTER SET utf8 ;
+USE `lostfound` ;
 
 -- -----------------------------------------------------
--- Table `mydb`.`Item_Types`
+-- Table `lostfound`.`Item_Types`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Item_Types` (
+CREATE TABLE IF NOT EXISTS `lostfound`.`Item_Types` (
   `type_id` INT NOT NULL AUTO_INCREMENT,
   `type` VARCHAR(50) NOT NULL,
   PRIMARY KEY (`type_id`))
@@ -25,9 +25,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`Items`
+-- Table `lostfound`.`Items`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Items` (
+CREATE TABLE IF NOT EXISTS `lostfound`.`Items` (
   `item_id` INT NOT NULL AUTO_INCREMENT,
   `type_id` INT NOT NULL,
   `date_found` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Items` (
   INDEX `fk_Items_Item_Types_idx` (`type_id` ASC),
   CONSTRAINT `fk_Items_Item_Types`
     FOREIGN KEY (`type_id`)
-    REFERENCES `mydb`.`Item_Types` (`type_id`)
+    REFERENCES `lostfound`.`Item_Types` (`type_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
