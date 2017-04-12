@@ -1,0 +1,11 @@
+
+/*DROPDOWN STYLES*/
+.dropdown-menu > li > .remove-user {
+    color: red;
+    cursor: pointer;
+}
+.dropdown-menu > li > .add-user {
+    color: #439F3E;
+    cursor: pointer;
+}
+/* END DROPDOWN STYLES*/
