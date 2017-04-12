@@ -15,9 +15,9 @@ CREATE SCHEMA IF NOT EXISTS `lostfound` DEFAULT CHARACTER SET utf8 ;
 USE `lostfound` ;
 
 -- -----------------------------------------------------
--- Table `lostfound`.`Item_Types`
+-- Table `lostfound`.`item_types`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `lostfound`.`Item_Types` (
+CREATE TABLE IF NOT EXISTS `lostfound`.`item_types` (
   `type_id` INT NOT NULL AUTO_INCREMENT,
   `type` VARCHAR(50) NOT NULL,
   PRIMARY KEY (`type_id`))
@@ -25,26 +25,24 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `lostfound`.`Items`
+-- Table `lostfound`.`items`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `lostfound`.`Items` (
+CREATE TABLE IF NOT EXISTS `lostfound`.`items` (
   `item_id` INT NOT NULL AUTO_INCREMENT,
   `type_id` INT NOT NULL,
   `date_found` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `location_found` VARCHAR(100) NULL,
   `description` VARCHAR(500) NULL,
-  `contacted_owner` TINYINT(1) NOT NULL DEFAULT 0,
+  `collected_by` VARCHAR(50) NULL,
+  `owner_info` VARCHAR(500) NULL,
   `inventory_location` VARCHAR(45) NULL,
-  `address` VARCHAR(100) NULL,
-  `phone` VARCHAR(45) NULL,
-  `email` VARCHAR(45) NULL,
   `officer` VARCHAR(45) NULL,
   `report_number` VARCHAR(45) NULL,
   PRIMARY KEY (`item_id`),
   INDEX `fk_Items_Item_Types_idx` (`type_id` ASC),
   CONSTRAINT `fk_Items_Item_Types`
     FOREIGN KEY (`type_id`)
-    REFERENCES `lostfound`.`Item_Types` (`type_id`)
+    REFERENCES `lostfound`.`item_types` (`type_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
