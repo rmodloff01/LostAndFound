@@ -230,6 +230,6 @@ return [
 
     ],
 
-    'allowRegister' => false
+    'allowRegister' => true
 
 ];
