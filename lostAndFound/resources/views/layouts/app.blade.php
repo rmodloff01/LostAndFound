@@ -63,13 +63,11 @@
 
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
-                                        <a class="add-user">
-                                            Add User
-                                        </a>
+                                        <li><a class="add-user" href="{{ route('register') }}">Add User</a></li>
                                     </li>
                                     <li class="divider"></li>
                                     <li>
-                                        <a class="remove-user">
+                                        <a href="{{url('/delUser')}}" class="remove-user">
                                             Delete User
                                         </a>
                                     </li>
