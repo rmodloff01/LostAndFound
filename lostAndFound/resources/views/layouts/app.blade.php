@@ -37,7 +37,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/home') }}">
-                        {{ config('app.name', 'Laravel') }}
+                        Search For Items
                     </a>
                 </div>
 
@@ -56,6 +56,7 @@
                                 <li><a href="{{ route('register') }}">Add User</a></li>
                             @endif
                         @else
+                        <li><a href="{{ url('/itemForm') }}"><button class="btn btn-primary">Submit Lost Item</button></a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>
@@ -67,8 +68,8 @@
                                     </li>
                                     <li class="divider"></li>
                                     <li>
-                                        <a href="{{url('/delUser')}}" class="remove-user">
-                                            Delete User
+                                        <a href="{{url('/getUser')}}" class="remove-user">
+                                            View/Delete Users
                                         </a>
                                     </li>
                                     <li class="divider"></li>

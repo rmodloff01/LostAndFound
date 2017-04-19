@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 
 class DeleteUserController extends Controller
@@ -16,13 +17,20 @@ class DeleteUserController extends Controller
         $this->middleware('auth');
     }
 
+    public function deleteUser(Request $req){
+        $deletedUser = json_decode($req['userObj']);
+        User::Destroy($deletedUser->id);
+        return view('deleteViews/deleted')->with('passed', $deletedUser);
+    }
+
+    public function getUsers(){
+        $users = User::all();
+        return view('deleteViews/deleteUser')->with('users', $users);
+    }
+
     /**
      * Show the application dashboard.
      *
      * @return \Illuminate\Http\Response
      */
-    public function init()
-    {
-        return view('deleteUser');
-    }
 }

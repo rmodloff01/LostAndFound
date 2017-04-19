@@ -19,4 +19,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-Route::get('/delUser', 'DeleteUserController@init');
+Route::get('/itemForm', 'ItemsController@showForm');
+
+
+Route::get('/getUser', 'DeleteUserController@getUsers');
+Route::delete('/delUser', 'DeleteUserController@deleteUser');
