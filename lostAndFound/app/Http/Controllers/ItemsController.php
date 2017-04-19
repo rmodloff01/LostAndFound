@@ -8,12 +8,11 @@ use Illuminate\Http\Request;
 
 class ItemsController extends Controller {
     public function __construct(  ) {
-        //include( app_path() . '/dbClass.php');
+        $this->middleware('auth');
     }
 
 
     public function getSearchResults(  ) {
-        $DB = new dbClass();
     }
 
     public function showForm(){
@@ -21,16 +20,11 @@ class ItemsController extends Controller {
     }
 
      public function addItem() {
-       $DB = new dbClass();
-       $DB->addRow();
      }
 
      public function editItem() {
-       $DB = new dbClass();
-       $DB->editItem();
      }
 
      public function dontRemember() {
-
      }
  }
