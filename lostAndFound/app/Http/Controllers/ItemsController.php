@@ -12,7 +12,6 @@ class ItemsController extends Controller {
         $this->middleware('auth');
     }
 
-
     public function getSearchResults(  ) {
 
     }
@@ -27,7 +26,7 @@ class ItemsController extends Controller {
         ( ?, ?, ?, ?, ?, ?, ?)', [$req['types'], $req['location'], $req['description'],
           $req['ownerinfo'], $req['inventorylocation'], $req['officer'], $req['reportnumber']]);
 
-        return view('welcome');
+        return view('home');
      }
 
      public function editItem() {

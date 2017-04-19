@@ -11,6 +11,15 @@
 
                 <div class="panel-body">
                     View/Search items here, add option to delete/edit
+                    <?php
+                    print "<br /> REQUEST=<pre>"; print_r( $items );
+
+                    #Testing traversing of an object
+                    foreach ($items as $item) {
+                      print "$item->description";
+                      print " ";
+                      }
+                    ?>
                 </div>
 
             </div>

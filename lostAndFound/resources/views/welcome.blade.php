@@ -85,7 +85,7 @@
                 </div>
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">Please Log in or Register to Begin</a>
+                    <a>Please Log in or Register to Begin</a>
                 </div>
             </div>
         </div>

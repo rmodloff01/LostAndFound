@@ -5,7 +5,7 @@
 		{{csrf_field()}}
 		<div class="container">
 			<div class="row">
-				<div class="col-md-4" style="margin-left:14.75em">
+				<div class="col-md-4" style="margin-left:16em">
 					<br><label>Item Type:&nbsp</label><br>
 					<div class="form-group">
 						<select size="11" name="types" id="type" style="width:300px">
