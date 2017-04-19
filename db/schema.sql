@@ -13,8 +13,8 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 -- -----------------------------------------------------
 CREATE SCHEMA IF NOT EXISTS `lostfound` DEFAULT CHARACTER SET utf8 ;
 USE `lostfound` ;
-drop table `lostfound`.`items`;
-drop table `lostfound`.`item_types`;
+drop table IF EXISTS `lostfound`.`items`;
+drop table IF EXISTS `lostfound`.`item_types`;
 
 -- -----------------------------------------------------
 -- Table `lostfound`.`item_types`
