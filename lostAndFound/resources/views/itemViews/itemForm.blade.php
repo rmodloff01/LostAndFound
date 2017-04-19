@@ -1,29 +1,30 @@
 @extends('layouts.app')
 @section('content')
 <div id="addItemForm">
-	<form action="$_SERVER['PHP_SELF']" method='post' id='addItem'>
+	<form action="" method='post' id='addItem'>
+		{{csrf_field()}}
 		<div class="container">
 			<div class="row">
 				<div class="col-md-4" style="margin-left:14.75em">
 					<br><label>Item Type:&nbsp</label><br>
 					<div class="form-group">
-						<select size="11" name="types[]" id="type" style="width:300px">
-							<option value="Keys">Keys</option>
-							<option value="Wallet">Wallet</option>
-							<option value="CellPhone">Cell Phone</option>
-							<option value="Laptop">Laptop/Tablet</option>
-							<option value="ID">AU ID - Official Gov ID Card</option>
-							<option value="FlashDrive">Flash Drive</option>
-							<option value="Textbook">Textbook</option>
-							<option value="Clothing">Clothing</option>
-							<option value="Bags">Bags - Purses/Backpack</option>
-							<option value="Debit">Debit/Credit Card</option>
-							<option value="Glasses">Glasses</option>
-							<option value="Jewelery">Jewelry</option>
-							<option value="Charger">Charger</option>
-							<option value="Headphones">Headphones</option>
-							<option value="Notebook">Notebook/Binder</option>
-							<option value="Other">Other</option>
+						<select size="11" name="types" id="type" style="width:300px">
+							<option value=1>Keys</option>
+							<option value=2>Wallet</option>
+							<option value=3>Cell Phone</option>
+							<option value=4>Laptop/Tablet</option>
+							<option value=5>AU ID - Official Gov ID Card</option>
+							<option value=6>Flash Drive</option>
+							<option value=7>Textbook</option>
+							<option value=8>Clothing</option>
+							<option value=9>Bags - Purses/Backpack</option>
+							<option value=10>Debit/Credit Card</option>
+							<option value=11>Glasses</option>
+							<option value=12>Jewelry</option>
+							<option value=13>Charger</option>
+							<option value=14>Headphones</option>
+							<option value=15>Notebook/Binder</option>
+							<option value=16>Other</option>
 						</select>
 					</div>
 					<label>Location Found:&nbsp</label>
