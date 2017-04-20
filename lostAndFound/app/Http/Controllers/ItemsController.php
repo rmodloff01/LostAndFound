@@ -26,7 +26,7 @@ class ItemsController extends Controller {
         ( ?, ?, ?, ?, ?, ?, ?)', [$req['types'], $req['location'], $req['description'],
           $req['ownerinfo'], $req['inventorylocation'], $req['officer'], $req['reportnumber']]);
 
-        return view('home');
+        return view('/home');
      }
 
      public function editItem() {

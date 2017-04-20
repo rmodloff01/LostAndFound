@@ -8,7 +8,7 @@
 				<div class="col-md-4" style="margin-left:16em">
 					<br><label>Item Type:&nbsp</label><br>
 					<div class="form-group">
-						<select size="11" name="types" id="type" style="width:300px">
+						<select size="9" name="types" id="type" style="width:300px">
 							<option value=1>Keys</option>
 							<option value=2>Wallet</option>
 							<option value=3>Cell Phone</option>
@@ -34,9 +34,7 @@
 					<br>
 				</div>
 				<div class="col-md-4">
-					<br><label>Date Found:&nbsp</label>
-					<br><input type="text" name='datefound' placeholder="Date Found" value="" style="width:300px"><br>
-					<br><label>Report Number:&nbsp</label>
+					<br><br><label>Report Number:&nbsp</label>
 					<br><input type="text" name='reportnumber' placeholder="Report Number" value="" style="width:300px"><br>
 					<br><label>Owner Info:&nbsp</label>
 					<br><textarea name ='ownerinfo' placeholder="Any information about the owner?" form="addItem" style="width:300px" rows="3"></textarea><br><br>
@@ -49,6 +47,7 @@
 			</div>
 		</div>
 		<div style="text-align:center">
+			<br>
 			<button type="submit" class="btn btn-primary">Add Item</button>
 		</div>
 		<br>
