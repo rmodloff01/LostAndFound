@@ -24,7 +24,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $items = DB::select('select * from items');
-        return view('home')->with('items', $items);
+        $types = DB::select('select * from item_types;');
+        $items = DB::select('SELECT items.*, item_types.type FROM items INNER JOIN item_types ON items.type_id = item_types.type_id ORDER BY date_found DESC;');
+        return view('home')->with('items', $items)->with('formTypes', $types);
     }
 }

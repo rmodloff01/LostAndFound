@@ -20,8 +20,9 @@ Auth::routes();
 Route::get('/home', 'HomeController@index');
 
 Route::get('/itemForm', 'ItemsController@showForm');
-
 Route::post('/itemForm', 'ItemsController@addItem');
+Route::post('/itemFilter', 'ItemsController@getSearchResults');
+
 
 Route::get('/getUser', 'DeleteUserController@getUsers');
 Route::delete('/delUser', 'DeleteUserController@deleteUser');
