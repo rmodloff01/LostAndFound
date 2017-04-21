@@ -20,7 +20,9 @@ class DeleteUserController extends Controller
     public function deleteUser(Request $req){
         $deletedUser = json_decode($req['userObj']);
         User::Destroy($deletedUser->id);
-        return view('deleteViews/deleted')->with('passed', $deletedUser);
+
+        $MSG = "Removed account with email address";
+        return view('success')->with('msg', $MSG)->with('passed', $deletedUser);
     }
 
     public function getUsers(){

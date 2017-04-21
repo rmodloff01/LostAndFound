@@ -42,7 +42,9 @@ class ItemsController extends Controller {
          $req['ownerinfo'], $req['inventorylocation'], $req['officer'], $req['reportnumber']]);
          $items = DB::select('SELECT items.*, item_types.type FROM items INNER JOIN item_types ON items.type_id = item_types.type_id WHERE collected_by IS NULL ORDER BY date_found DESC;');
 
-         return view('home')->with('items', $items)->with('formTypes', $types);
+         #return view('home')->with('items', $items)->with('formTypes', $types);
+         $MSG = "You have added an item!";
+         return view('success')->with('msg', $MSG);
      }
 
      public function editItem(Request $req) {
@@ -54,9 +56,9 @@ class ItemsController extends Controller {
           $types = DB::select('select * from item_types;');
           $items = DB::select('SELECT items.*, item_types.type FROM items INNER JOIN item_types ON items.type_id = item_types.type_id ORDER BY date_found DESC;');
 
-           return view('home')->with('items', $items)->with('formTypes', $types);
-
-
+          #return view('home')->with('items', $items)->with('formTypes', $types);
+          $MSG = "You have updated an item!";
+          return view('success')->with('msg', $MSG);
      }
 
      public function showCollectedItems(){
