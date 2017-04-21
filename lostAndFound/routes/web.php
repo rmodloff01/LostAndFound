@@ -21,7 +21,7 @@ Route::get('/home', 'HomeController@index');
 
 Route::get('/itemForm', 'ItemsController@showForm');
 
-Route::get('/editForm', 'ItemsController@showEditForm');
+Route::put('/editForm', 'ItemsController@showEditForm');
 
 Route::post('/editForm', 'ItemsController@editItem');
 

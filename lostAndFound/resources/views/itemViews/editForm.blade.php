@@ -27,24 +27,24 @@
 							<option value=16>Other</option>
 						</select>
 					</div>
-					 <input type='hidden' name='id' value= 3>
+					<input type='hidden' name='id' value= {{$item->item_id}}>
 					<label>Location Found:&nbsp</label>
-					<br><input type="text" name="location" value='STEM building' style="width:300px"><br>
+					<br><input type="text" name="location" value= "{{$item->location_found}}" style="width:300px"><br>
 					<br><label>Description:&nbsp</label><br>
-					<textarea name ='description' placeholder = '' form="editItem" style="width:300px" rows="3"></textarea>
+					<textarea name ='description' form="editItem" style="width:300px" rows="3">{{$item->description}}</textarea>
 					<br>
 				</div>
 				<div class="col-md-4">
 					<br><label>Collected By:&nbsp</label>
 					<br><input type="text" name='collected' value="" style="width:300px"><br>
 					<br><label>Report Number:&nbsp</label>
-					<br><input type="text" name='reportnumber' value= "" style="width:300px"><br>
+					<br><input type="text" name='reportnumber' value= "{{$item->report_number}}" style="width:300px"><br>
 					<br><label>Owner Info:&nbsp</label>
-					<br><textarea name ='ownerinfo' placeholder='poor person' form="editItem" style="width:300px" rows="3"></textarea><br><br>
+					<br><textarea name ='ownerinfo' form="editItem" style="width:300px" rows="3"> {{$item->owner_info}} </textarea><br><br>
 					<label>Inventory Location:&nbsp</label>
-					<br><input type="text" name='inventorylocation' value= "" style="width:300px"><br><br>
+					<br><input type="text" name='inventorylocation' value= "{{$item->inventory_location}}" style="width:300px"><br><br>
 					<label>Officer:&nbsp</label>
-					<br><input type="textarea" name='officer' value="" style="width:300px"><br><br>
+					<br><input type="textarea" name='officer' value= "{{$item->officer}}" style="width:300px"><br><br>
 				</div>
 			</div>
 		</div>

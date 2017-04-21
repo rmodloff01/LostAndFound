@@ -26,6 +26,7 @@
                 <div class="panel-heading">See What Items Students Have Lost!</div>
                 @if(isset($items))
                     <div class="panel-body">
+                        {{ Form::open(array('url' => '/editForm','method' => 'put')) }}
                         <?php
                         #print "<br /> REQUEST=<pre>"; print_r( $items );
                         print "<table>";
@@ -49,11 +50,13 @@
                           print "</td><td>";
                           print "$item->report_number";
                           print "</td><td>";
-                          print "<button class='btn btn-primary'>Update</button>";
+                          print "<button name='btnid' value=$item->item_id class='btn btn-primary'>Update</button>";
                           print "</td></tr>";
                           }
                         print "</table>";
                         ?>
+                        {{ Form::token() }}
+                        {{ Form::close() }}
                     </div>
                 @else
                     <div class="panel-body">

@@ -23,8 +23,9 @@ class ItemsController extends Controller {
         return view('itemViews/itemForm');
     }
 
-    public function showEditForm() {
-      return view('itemViews/editForm');
+    public function showEditForm(Request $req) {
+      $item = DB::select('select * from items where item_id= ?', [$req['btnid']]);
+      return view('itemViews/editForm')->with('item', $item[0]);
     }
 
      public function addItem(Request $req) {
@@ -44,7 +45,11 @@ class ItemsController extends Controller {
           [$req['types'], $req['location'], $req['description'], $req['ownerinfo'], $req['collected'],
           $req['inventorylocation'], $req['officer'], $req['reportnumber'], $req['id']]);
 
-          return view('home');
+          $types = DB::select('select * from item_types;');
+          $items = DB::select('SELECT items.*, item_types.type FROM items INNER JOIN item_types ON items.type_id = item_types.type_id ORDER BY date_found DESC;');
+
+           return view('home')->with('items', $items)->with('formTypes', $types);
+
 
      }
 
