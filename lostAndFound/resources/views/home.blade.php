@@ -5,12 +5,14 @@
     <div class="row">
         <div class="col-md-2">
             <h4 class="text-center">Filter Records</h4>
-            {{ Form::open(array('url' => '/collectedItemFilter','method' => 'post')) }}
+            {{ Form::open(array('url' => '/itemFilter','method' => 'post')) }}
             <select multiple="multiple" name="types[]" size="9">
                 @foreach($formTypes as $key => $element)
                     <option value="{{$key}}" >{{$element->type}}</option>
                 @endforeach
             </select>
+            {{ Form::text('date1', '', array('id' => 'datepicker1')) }}
+            {{ Form::text('date2', '', array('id' => 'datepicker2')) }}
             {{ Form::submit('Filter Records') }}
             {{ Form::token() }}
             {{ Form::close() }}
@@ -68,5 +70,6 @@
         </div>
     </div>
 </div>
+
 
 @endsection

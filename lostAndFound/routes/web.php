@@ -20,13 +20,13 @@ Auth::routes();
 Route::get('/home', 'HomeController@index');
 
 Route::get('/itemForm', 'ItemsController@showForm');
+Route::post('/itemForm', 'ItemsController@addItem');
 
 Route::put('/editForm', 'ItemsController@showEditForm');
-
 Route::post('/editForm', 'ItemsController@editItem');
 
-Route::post('/itemForm', 'ItemsController@addItem');
-Route::post('/itemFilter', 'ItemsController@getSearchResults');
+Route::post('/collectedItemFilter', 'ItemsController@filterCollectedResults');
+Route::post('/itemFilter', 'ItemsController@filterResults');
 
 Route::get('/collectedItems', 'ItemsController@showCollectedItems');
 

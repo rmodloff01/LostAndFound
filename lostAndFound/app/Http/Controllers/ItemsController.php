@@ -12,11 +12,17 @@ class ItemsController extends Controller {
         $this->middleware('auth');
     }
 
-    public function getSearchResults(Request $req){
+    public function filterResults(Request $req){
         $types = DB::select('select * from item_types;');
         //$items = DB::select('SELECT items.*, item_types.type FROM items INNER JOIN item_types ON items.type_id = item_types.type_id
         //    WHERE date_found > ? AND date_found < ? AND ? = items.type_id;', []);
         return view('home')->with('formData', $req['types'])->with('formTypes', $types);
+    }
+    public function filterCollectedResults(Request $req){
+        $types = DB::select('select * from item_types;');
+        //$items = DB::select('SELECT items.*, item_types.type FROM items INNER JOIN item_types ON items.type_id = item_types.type_id
+        //    WHERE date_found > ? AND date_found < ? AND ? = items.type_id;', []);
+        return view('itemViews/collectedItems')->with('formData', $req['types'])->with('formTypes', $types);
     }
 
     public function showForm(){

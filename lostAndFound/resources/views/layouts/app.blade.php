@@ -11,6 +11,7 @@
     <title>{{ config('app.name') }}</title>
 
     <!-- Styles -->
+    <link rel="stylesheet" href="{{ asset('css/jquery-ui.css') }}">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/main.css')}} " rel='stylesheet'>
 
@@ -97,6 +98,15 @@
     </div>
 
     <!-- Scripts -->
+    <script src="{{ asset('js/jquery-3.2.1.js') }}"></script>
+    <script src="{{ asset('js/jquery-ui.js') }}"></script>
     <script src="{{ asset('js/app.js') }}"></script>
+    <script>
+    var $j = jQuery.noConflict();
+      $j(function() {
+        $( "#datepicker1" ).datepicker();
+        $( "#datepicker2" ).datepicker();
+      });
+    </script>
 </body>
 </html>
