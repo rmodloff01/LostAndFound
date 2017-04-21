@@ -5,8 +5,8 @@
     <div class="row">
         <div class="col-md-2">
             <h4 class="text-center">Filter Records</h4>
-            {{ Form::open(array('url' => '/itemFilter','method' => 'post')) }}
-            <select multiple="multiple" name="types[]">
+            {{ Form::open(array('url' => '/collectedItemFilter','method' => 'post')) }}
+            <select multiple="multiple" name="types[]" size="9">
                 @foreach($formTypes as $key => $element)
                     <option value="{{$key}}" >{{$element->type}}</option>
                 @endforeach

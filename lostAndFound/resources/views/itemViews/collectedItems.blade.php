@@ -3,12 +3,28 @@
 @section('content')
 <div class="container">
     <div class="row">
+      <div class="col-md-2">
+          <h4 class="text-center">Filter Records</h4>
+          {{ Form::open(array('url' => '/itemFilter','method' => 'post')) }}
+          <select multiple="multiple" name="types[]" size="10">
+              @foreach($formTypes as $key => $element)
+                  <option value="{{$key}}" >{{$element->type}}</option>
+              @endforeach
+          </select>
+          {{ Form::submit('Filter Records') }}
+          {{ Form::token() }}
+          {{ Form::close() }}
 
+          @if(isset($formData))
+              {{print_r($formData)}}
+          @endif
+      </div>
         <div class="col-md-10" style="text-align: center">
 
             <div class="panel panel-default">
 
-                <div class="panel-heading">See What Items Students Have Lost!</div>
+                <div class="panel-heading">See What Items Have Been Found!</div>
+                @if(isset($items))
                     <div class="panel-body">
                         <?php
                         #print "<br /> REQUEST=<pre>"; print_r( $items );
@@ -41,7 +57,11 @@
                         print "</table>";
                         ?>
                       </div>
-
+                      @else
+                          <div class="panel-body">
+                              <h2>No Records Match The Search Criteria</h2>
+                          </div>
+                      @endif
             </div>
         </div>
     </div>
