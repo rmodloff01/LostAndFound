@@ -48,4 +48,9 @@ class ItemsController extends Controller {
 
      }
 
+     public function showCollectedItems(){
+       $types = DB::select('select * from item_types;');
+       $items = DB::select("SELECT items.*, item_types.type FROM items INNER JOIN item_types ON items.type_id = item_types.type_id WHERE collected_by IS NOT NULL ORDER BY date_found DESC;");
+       return view('itemViews/collectedItems')->with('items', $items)->with('formTypes', $types);
+     }
  }

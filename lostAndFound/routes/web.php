@@ -28,6 +28,7 @@ Route::post('/editForm', 'ItemsController@editItem');
 Route::post('/itemForm', 'ItemsController@addItem');
 Route::post('/itemFilter', 'ItemsController@getSearchResults');
 
+Route::get('/collectedItems', 'ItemsController@showCollectedItems');
 
 Route::get('/getUser', 'DeleteUserController@getUsers');
 
