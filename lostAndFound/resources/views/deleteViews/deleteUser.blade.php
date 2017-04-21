@@ -18,7 +18,9 @@
             }
             print "</table>";
         ?>
-        {{ Form::submit('Delete User\'s Access') }}
+        @if(sizeof($users) > 1)
+            {{ Form::submit('Delete User\'s Access') }}
+        @endif
         {{ Form::token() }}
         {{ Form::close() }}
 
