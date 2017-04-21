@@ -23,6 +23,10 @@ class ItemsController extends Controller {
         return view('itemViews/itemForm');
     }
 
+    public function showEditForm() {
+      return view('itemViews/editForm');
+    }
+
      public function addItem(Request $req) {
          $types = DB::select('select * from item_types;');
          DB::insert('insert into items (type_id, location_found,
@@ -34,8 +38,13 @@ class ItemsController extends Controller {
          return view('home')->with('items', $items)->with('formTypes', $types);
      }
 
-     public function editItem() {
+     public function editItem(Request $req) {
+       DB::update('update items set type_id = ?, location_found= ?,
+        description= ?, owner_info= ?, collected_by = ?, inventory_location= ?, officer= ?, report_number= ? where item_id= ?',
+          [$req['types'], $req['location'], $req['description'], $req['ownerinfo'], $req['collected'],
+          $req['inventorylocation'], $req['officer'], $req['reportnumber'], $req['id']]);
 
+          return view('home');
 
      }
 
