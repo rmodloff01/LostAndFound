@@ -29,13 +29,15 @@
                         <?php
                         #print "<br /> REQUEST=<pre>"; print_r( $items );
                         print "<table>";
-                        print "<th>Item Type</th><th>Date Found</th><th>Description</th><th>Owner Info</th><th>Inventory Location</th><th>Officer</th><th>Report Number</th><th>Update Item</th>";
+                        print "<th>Item Type</th><th>Date Found</th><th>Location Found</th><th>Description</th><th>Owner Info</th><th>Inventory Location</th><th>Officer</th><th>Report Number</th><th>Update Item</th>";
                         #Testing traversing of an object
                         foreach ($items as $item) {
                           print "<tr><td>";
                           print "$item->type";
                           print "</td><td>";
                           print "$item->date_found";
+                          print "</td><td>";
+                          print "$item->location_found";
                           print "</td><td>";
                           print "$item->description";
                           print "</td><td>";
