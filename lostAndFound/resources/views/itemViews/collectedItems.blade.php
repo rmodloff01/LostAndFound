@@ -13,7 +13,7 @@
           </select>
           {{ Form::text('date1', '', array('id' => 'datepicker1')+['required']) }}
           {{ Form::text('date2', '', array('id' => 'datepicker2')+['required']) }}
-          {{ Form::submit('Filter Records') }}
+          <!--{{ Form::submit('Filter Records') }}-->
           {{ Form::token() }}
           {{ Form::close() }}
 
