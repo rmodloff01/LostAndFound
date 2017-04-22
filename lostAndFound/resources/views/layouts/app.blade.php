@@ -38,7 +38,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/home') }}">
-                        Search For Items
+                        View Lost Items
                     </a>
                 </div>
 
@@ -104,8 +104,8 @@
     <script>
     var $j = jQuery.noConflict();
       $j(function() {
-        $( "#datepicker1" ).datepicker();
-        $( "#datepicker2" ).datepicker();
+        $( "#datepicker1" ).datepicker({ dateFormat: 'yy-mm-dd' });
+        $( "#datepicker2" ).datepicker({ dateFormat: 'yy-mm-dd' });
       });
     </script>
 </body>

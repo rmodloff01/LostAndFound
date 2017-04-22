@@ -25,7 +25,6 @@
         {{ Form::close() }}
 
         </div>
-        {{$users}}
     </div>
 </div>
 @endsection

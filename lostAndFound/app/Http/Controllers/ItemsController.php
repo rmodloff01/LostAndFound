@@ -14,15 +14,13 @@ class ItemsController extends Controller {
 
     public function filterResults(Request $req){
         $types = DB::select('select * from item_types;');
-        //$items = DB::select('SELECT items.*, item_types.type FROM items INNER JOIN item_types ON items.type_id = item_types.type_id
-        //    WHERE date_found > ? AND date_found < ? AND ? = items.type_id;', []);
-        return view('home')->with('formData', $req['types'])->with('formTypes', $types);
+        $items = DB::select('SELECT items.*, item_types.type from items INNER JOIN item_types ON items.type_id = item_types.type_id where date_found > ? AND date_found < ? AND ? = items.type_id AND collected_by IS NULL ORDER BY date_found DESC;', [$req['date1'], $req['date2'], $req['type']]);
+        return view('home')->with('formTypes', $types)->with('items', $items);
     }
     public function filterCollectedResults(Request $req){
         $types = DB::select('select * from item_types;');
-        //$items = DB::select('SELECT items.*, item_types.type FROM items INNER JOIN item_types ON items.type_id = item_types.type_id
-        //    WHERE date_found > ? AND date_found < ? AND ? = items.type_id;', []);
-        return view('itemViews/collectedItems')->with('formData', $req['types'])->with('formTypes', $types);
+        $items = DB::select('SELECT items.*, item_types.type from items INNER JOIN item_types ON items.type_id = item_types.type_id where date_found > ? AND date_found < ? AND ? = items.type_id AND collected_by IS NOT NULL ORDER BY date_found DESC;', [$req['date1'], $req['date2'], $req['type']]);
+        return view('itemViews/collectedItems')->with('formTypes', $types)->with('items', $items);
     }
 
     public function showForm(){

@@ -6,13 +6,13 @@
         <div class="col-md-2">
             <h4 class="text-center">Filter Records</h4>
             {{ Form::open(array('url' => '/itemFilter','method' => 'post')) }}
-            <select multiple="multiple" name="types[]" size="9">
+            <select name="type" size="9">
                 @foreach($formTypes as $key => $element)
                     <option value="{{$key}}" >{{$element->type}}</option>
                 @endforeach
             </select>
-            {{ Form::text('date1', '', array('id' => 'datepicker1')) }}
-            {{ Form::text('date2', '', array('id' => 'datepicker2')) }}
+            {{ Form::text('date1', '', array('id' => 'datepicker1')+['required']) }}
+            {{ Form::text('date2', '', array('id' => 'datepicker2')+['required']) }}
             {{ Form::submit('Filter Records') }}
             {{ Form::token() }}
             {{ Form::close() }}
@@ -26,7 +26,7 @@
             <div class="panel panel-default">
 
                 <div class="panel-heading">See What Items Students Have Lost!</div>
-                @if(isset($items))
+                @if(isset($items) && sizeof($items) > 0)
                     <div class="panel-body">
                         {{ Form::open(array('url' => '/editForm','method' => 'put')) }}
                         <?php
