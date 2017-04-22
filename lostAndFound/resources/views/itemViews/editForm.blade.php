@@ -8,24 +8,12 @@
 				<div class="col-md-4" style="margin-left:16em">
 					<br><label>Item Type:&nbsp</label><br>
 					<div class="form-group">
-						<select size="11" name="types" id="type" style="width:300px">
-							<option value=1>Keys</option>
-							<option value=2>Wallet</option>
-							<option value=3>Cell Phone</option>
-							<option value=4>Laptop/Tablet</option>
-							<option value=5>AU ID - Official Gov ID Card</option>
-							<option value=6>Flash Drive</option>
-							<option value=7>Textbook</option>
-							<option value=8>Clothing</option>
-							<option value=9>Bags - Purses/Backpack</option>
-							<option value=10>Debit/Credit Card</option>
-							<option value=11>Glasses</option>
-							<option value=12>Jewelry</option>
-							<option value=13>Charger</option>
-							<option value=14>Headphones</option>
-							<option value=15>Notebook/Binder</option>
-							<option value=16>Other</option>
-						</select>
+						<?php
+						echo Form::select('types', array('1' => 'Keys', '2' => 'Wallet',
+									'3' => 'Cell Phones', '4' => 'Laptop/Tablets', '5' => 'AU ID - Official Gov ID Card',
+									'6' => 'Flash Drive',  '7' => 'Textbook', '8' => 'Clothing',  '9' => 'Bags - Purses/Backpack',
+									'10' => 'Debit/Credit Card',  '11' => 'Glasses', '12' => 'Jewelry',  '13' => 'Charger', '14' => 'Headphones',
+								  '15' => 'Notebook/Binder', '16' => 'Other'), $item->type_id, ['size' => '11']); ?>
 					</div>
 					<input type='hidden' name='id' value= {{$item->item_id}}>
 					<label>Location Found:&nbsp</label>
