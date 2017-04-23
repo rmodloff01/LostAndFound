@@ -7,13 +7,13 @@
           <h4 class="text-center">Filter Records</h4>
           {{ Form::open(array('url' => '/collectedItemFilter','method' => 'post')) }}
           <select name="type" size="9">
-              @foreach($formTypes as $key => $element)
-                  <option value="{{$key}}" >{{$element->type}}</option>
+              @foreach($formTypes as $element)
+                  <option value="{{$element->type_id}}" >{{$element->type}}</option>
               @endforeach
           </select>
           {{ Form::text('date1', '', array('id' => 'datepicker1')+['required']) }}
           {{ Form::text('date2', '', array('id' => 'datepicker2')+['required']) }}
-          <!--{{ Form::submit('Filter Records') }}-->
+          {{ Form::submit('Filter Records') }}
           {{ Form::token() }}
           {{ Form::close() }}
 
