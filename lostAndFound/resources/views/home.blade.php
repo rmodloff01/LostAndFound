@@ -1,32 +1,35 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container-fluid">
     <div class="row">
-        <div class="col-md-2">
-            <h4 class="text-center">Filter Records</h4>
-            {{ Form::open(array('url' => '/itemFilter','method' => 'post')) }}
-            <select name="type" size="9">
-                @foreach($formTypes as $element)
-                    <option value="{{$element->type_id}}" >{{$element->type}}</option>
-                @endforeach
-            </select>
-            {{ Form::text('date1', '', array('id' => 'datepicker1')+['required']) }}
-            {{ Form::text('date2', '', array('id' => 'datepicker2')+['required']) }}
-            {{ Form::submit('Filter Records') }}
-            {{ Form::token() }}
+        <div class="col-md-2 well bs-component">
+            <legend>Filter Records</legend>
+            {{ Form::open(array('url' => '/itemFilter','method' => 'post', 'class' => 'form-horizontal')) }}
+                <fieldset>
+                    <label for="selectbox" class = "control-label">Item Type:</label>
+                    <select name="type" id="selectbox" class="form-control">
+                        @foreach($formTypes as $element)
+                            <option value="{{$element->type_id}}" >{{$element->type}}</option>
+                        @endforeach
+                    </select>
+                    <div class="form-group">
+                        <label for="datepicker1" class = "control-label">Start Date:</label>
+                        {{ Form::text('date1', '', array('id' => 'datepicker1', 'class' => 'makepointer form-control')+['required']) }}
+                        <label for="datepicker2" class = "control-label">End Date:</label>
+                        {{ Form::text('date2', '', array('id' => 'datepicker2', 'class' => 'makepointer form-control')+['required']) }}
+                    </div>
+                    {{ Form::button('Filter Records', array('type' => 'submit', 'class' => 'btn btn-info'))}}
+                    {{ Form::token() }}
+                </fieldset>
             {{ Form::close() }}
-
-            @if(isset($formData))
-                {{print_r($formData)}}
-            @endif
         </div>
         <div class="col-md-10" style="text-align: center">
 
             <div class="panel panel-default">
 
-                <div class="panel-heading">See What Items Students Have Lost!</div>
                 @if(isset($items) && sizeof($items) > 0)
+                <div class="panel-heading">Lost Items</div>
                     <div class="panel-body">
                         {{ Form::open(array('url' => '/editForm','method' => 'put')) }}
                         <?php
@@ -62,7 +65,7 @@
                     </div>
                 @else
                     <div class="panel-body">
-                        <h2>No Records Match The Search Criteria</h2>
+                        <h2 class="panel-heading">No Records Match The Search Criteria</h2>
                     </div>
                 @endif
 
