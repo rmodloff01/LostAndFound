@@ -29,13 +29,13 @@
             <div class="panel panel-default">
 
                 @if(isset($items) && sizeof($items) > 0)
-                    <div class="panel-heading">Collected Items</div>
+                    <div class="panel-heading double-size">Collected Items</div>
                     <div class="panel-body">
                         {{ Form::open(array('url' => '/editForm','method' => 'put')) }}
                         <?php
                         #print "<br /> REQUEST=<pre>"; print_r( $items );
                         print "<table>";
-                        print "<th>Item Type</th><th>Date Found</th><th>Location Found</th><th>Description</th><th>Collected By</th><th>Owner Info</th><th>Inventory Location</th><th>Officer</th><th>Report Number</th><th>Update Item</th>";
+                        print "<th>Item Type</th><th>Date Found</th><th>Collected By</th><th>Location Found</th><th>Description</th><th>Owner Info</th><th>Inventory Location</th><th>Officer</th><th>Report Number</th><th>Update Item</th>";
                         #Testing traversing of an object
                         foreach ($items as $item) {
                           print "<tr><td>";
@@ -43,11 +43,11 @@
                           print "</td><td>";
                           print "$item->date_found";
                           print "</td><td>";
+                          print "$item->collected_by";
+                          print "</td><td>";
                           print "$item->location_found";
                           print "</td><td>";
                           print "$item->description";
-                          print "</td><td>";
-                          print "$item->collected_by";
                           print "</td><td>";
                           print "$item->owner_info";
                           print "</td><td>";

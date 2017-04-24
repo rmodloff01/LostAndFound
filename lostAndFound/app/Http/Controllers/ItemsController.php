@@ -24,7 +24,8 @@ class ItemsController extends Controller {
     }
 
     public function showForm(){
-        return view('itemViews/itemForm');
+        $types = DB::select('select * from item_types;');
+        return view('itemViews/itemForm')->with('formTypes', $types);
     }
 
     public function showEditForm(Request $req) {
@@ -36,9 +37,8 @@ class ItemsController extends Controller {
          $types = DB::select('select * from item_types;');
          DB::insert('insert into items (type_id, location_found,
          description, owner_info, inventory_location, officer, report_number) values
-         ( ?, ?, ?, ?, ?, ?, ?)', [$req['types'], $req['location'], $req['description'],
+         ( ?, ?, ?, ?, ?, ?, ?)', [$req['type'], $req['location'], $req['description'],
          $req['ownerinfo'], $req['inventorylocation'], $req['officer'], $req['reportnumber']]);
-         $items = DB::select('SELECT items.*, item_types.type FROM items INNER JOIN item_types ON items.type_id = item_types.type_id WHERE collected_by IS NULL ORDER BY date_found DESC;');
 
          #return view('home')->with('items', $items)->with('formTypes', $types);
          $MSG = "You have added an item!";
@@ -48,11 +48,8 @@ class ItemsController extends Controller {
      public function editItem(Request $req) {
        DB::update('update items set type_id = ?, location_found= ?,
         description= ?, owner_info= ?, collected_by = ?, inventory_location= ?, officer= ?, report_number= ? where item_id= ?',
-          [$req['types'], $req['location'], $req['description'], $req['ownerinfo'], $req['collected'],
+          [$req['type'], $req['location'], $req['description'], $req['ownerinfo'], $req['collected'],
           $req['inventorylocation'], $req['officer'], $req['reportnumber'], $req['id']]);
-
-          $types = DB::select('select * from item_types;');
-          $items = DB::select('SELECT items.*, item_types.type FROM items INNER JOIN item_types ON items.type_id = item_types.type_id ORDER BY date_found DESC;');
 
           #return view('home')->with('items', $items)->with('formTypes', $types);
           $MSG = "You have updated an item!";

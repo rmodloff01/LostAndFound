@@ -19,3 +19,7 @@ table, th, td {
 .makepointer {
     cursor : pointer;
 }
+
+.double-size{
+    font-size : 2em;
+}

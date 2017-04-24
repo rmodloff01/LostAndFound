@@ -7,12 +7,14 @@
             <legend>Filter Records</legend>
             {{ Form::open(array('url' => '/itemFilter','method' => 'post', 'class' => 'form-horizontal')) }}
                 <fieldset>
-                    <label for="selectbox" class = "control-label">Item Type:</label>
-                    <select name="type" id="selectbox" class="form-control">
-                        @foreach($formTypes as $element)
-                            <option value="{{$element->type_id}}" >{{$element->type}}</option>
-                        @endforeach
-                    </select>
+                    <div class="form-group">
+                        <label for="selectbox" class = "control-label">Item Type:</label>
+                        <select name="type" id="selectbox" class="form-control">
+                            @foreach($formTypes as $element)
+                                <option value="{{$element->type_id}}" >{{$element->type}}</option>
+                            @endforeach
+                        </select>
+                    </div>
                     <div class="form-group">
                         <label for="datepicker1" class = "control-label">Start Date:</label>
                         {{ Form::text('date1', '', array('id' => 'datepicker1', 'class' => 'makepointer form-control')+['required']) }}
@@ -29,7 +31,7 @@
             <div class="panel panel-default">
 
                 @if(isset($items) && sizeof($items) > 0)
-                <div class="panel-heading">Lost Items</div>
+                <div class="panel-heading double-size">Lost Items</div>
                     <div class="panel-body">
                         {{ Form::open(array('url' => '/editForm','method' => 'put')) }}
                         <?php
