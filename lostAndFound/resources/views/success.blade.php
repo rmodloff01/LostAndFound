@@ -5,8 +5,16 @@
         <h3>Success! {{$msg}}
           @if(isset($passed))
             {{$passed->email}}
-          @endif</h3>
-        <a href="{{ url('/home')}}"><button class="btn btn-primary">Go Back to Home Page</button></a>
+          @endif
+        </h3>
+      </br>
+        <h4>
+          Taking you back to the home page...
+        </h4>
+          <script>
+            window.setTimeout(function(){ window.location = "{{ url('/home')}}"; }, 3500);
+          </script>
+
     </div>
 </div>
 @endsection
