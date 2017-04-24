@@ -34,13 +34,11 @@ class ItemsController extends Controller {
     }
 
      public function addItem(Request $req) {
-         $types = DB::select('select * from item_types;');
          DB::insert('insert into items (type_id, location_found,
          description, owner_info, inventory_location, officer, report_number) values
          ( ?, ?, ?, ?, ?, ?, ?)', [$req['type'], $req['location'], $req['description'],
          $req['ownerinfo'], $req['inventorylocation'], $req['officer'], $req['reportnumber']]);
 
-         #return view('home')->with('items', $items)->with('formTypes', $types);
          $MSG = "You have added an item!";
          return view('success')->with('msg', $MSG);
      }
@@ -51,7 +49,6 @@ class ItemsController extends Controller {
           [$req['type'], $req['location'], $req['description'], $req['ownerinfo'], $req['collected'],
           $req['inventorylocation'], $req['officer'], $req['reportnumber'], $req['id']]);
 
-          #return view('home')->with('items', $items)->with('formTypes', $types);
           $MSG = "You have updated an item!";
           return view('success')->with('msg', $MSG);
      }
