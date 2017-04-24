@@ -20,7 +20,7 @@
 					</div>
 					<div class="form-group">
 						<label for='description'>Description:&nbsp</label>
-						<textarea name ='description' id='description' form="editItem" rows="3" class="form-control" maxlength="500"></textarea>
+						<textarea name ='description' id='description' form="addItem" rows="3" class="form-control" maxlength="500"></textarea>
 					</div>
 				</div>
 				<div class="col-md-6">
@@ -30,7 +30,7 @@
 					</div>
 					<div class="form-group">
 						<label for='ownerinfo'>Owner Info:&nbsp</label>
-						<textarea name ='ownerinfo' id='ownerinfo' form="editItem" rows="3" class="form-control" maxlength="500"></textarea>
+						<textarea name ='ownerinfo' id='ownerinfo' form="addItem" rows="3" class="form-control" maxlength="500"></textarea>
 					</div>
 					<div class="form-group">
 						<label for='inventorylocation'>Inventory Location:&nbsp</label>
