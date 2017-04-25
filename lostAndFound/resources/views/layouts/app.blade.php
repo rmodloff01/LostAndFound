@@ -57,8 +57,12 @@
                                 <li><a href="{{ route('register') }}">Add User</a></li>
                             @endif
                         @else
-                        <li><a href="{{ url('/itemForm') }}"><button class="btn btn-primary">Submit Lost Item</button></a></li>
-                        <li><a href="{{ url('/collectedItems') }}"><button class="btn btn-success">View Collected Items</button></a></li>
+                        <a class="navbar-brand" href="{{ url('/itemForm') }}">
+                            Submit Lost Item
+                        </a>
+                        <a class="navbar-brand" href="{{ url('/collectedItems') }}">
+                            View Collected Items
+                        </a>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>
