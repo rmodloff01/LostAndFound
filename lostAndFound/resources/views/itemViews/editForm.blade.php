@@ -18,19 +18,19 @@
 						</div>
 						<input type='hidden' name='id' value= {{$item->item_id}}>
 						<div class="form-group">
+							<label for='description'>Description:&nbsp</label>
+							<textarea name ='description' id='description' form="editItem" rows="3" class="form-control" maxlength="500">{{$item->description}}</textarea>
+						</div>
+						<div class="form-group">
 							<label for='location'>Location Found:&nbsp</label>
 							<input type="text" name="location" id='location' value= "{{$item->location_found}}" class="form-control" maxlength="100">
 						</div>
 						<div class="form-group">
-							<label for='description'>Description:&nbsp</label>
-							<textarea name ='description' id='description' form="editItem" rows="3" class="form-control" maxlength="500">{{$item->description}}</textarea>
-						</div>
-					</div>
-					<div class="col-md-6">
-						<div class="form-group">
 							<label for='collected'>Collected By:&nbsp</label>
 							<input type="text" name='collected' id='collected' value= "{{$item->collected_by}}" class="form-control" maxlength="50">
 						</div>
+					</div>
+					<div class="col-md-6">
 						<div class="form-group">
 							<label for='reportnumber'>Report Number:&nbsp</label>
 							<input type="text" name='reportnumber' id='reportnumber' value= "{{$item->report_number}}" class="form-control" maxlength="45">

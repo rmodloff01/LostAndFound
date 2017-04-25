@@ -15,12 +15,12 @@
                         </select>
 					</div>
 					<div class="form-group">
-						<label for='location'>Location Found:&nbsp</label>
-						<input type="text" name="location" id='location' class="form-control" maxlength="100">
-					</div>
-					<div class="form-group">
 						<label for='description'>Description:&nbsp</label>
 						<textarea name ='description' id='description' form="addItem" rows="3" class="form-control" maxlength="500"></textarea>
+					</div>
+					<div class="form-group">
+						<label for='location'>Location Found:&nbsp</label>
+						<input type="text" name="location" id='location' class="form-control" maxlength="100">
 					</div>
 				</div>
 				<div class="col-md-6">
