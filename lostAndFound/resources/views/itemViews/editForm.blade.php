@@ -8,6 +8,10 @@
 				<fieldset>
 					<div class="col-md-6">
 						<div class="form-group">
+							<label for='collected'>Collected By:&nbsp</label>
+							<input type="text" name='collected' id='collected' value= "{{$item->collected_by}}" class="form-control" maxlength="50">
+						</div>
+						<div class="form-group">
 						<label for='type'>Item Type:&nbsp</label>
 							<?php
 							echo Form::select('type', array('1' => 'Keys', '2' => 'Wallet',
@@ -24,10 +28,6 @@
 						<div class="form-group">
 							<label for='location'>Location Found:&nbsp</label>
 							<input type="text" name="location" id='location' value= "{{$item->location_found}}" class="form-control" maxlength="100">
-						</div>
-						<div class="form-group">
-							<label for='collected'>Collected By:&nbsp</label>
-							<input type="text" name='collected' id='collected' value= "{{$item->collected_by}}" class="form-control" maxlength="50">
 						</div>
 					</div>
 					<div class="col-md-6">

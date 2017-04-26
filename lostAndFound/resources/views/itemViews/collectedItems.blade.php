@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
 <div class="container-fluid">
     <div class="row">
@@ -7,12 +6,14 @@
             <legend>Filter Records</legend>
             {{ Form::open(array('url' => '/collectedItemFilter','method' => 'post', 'class' => 'form-horizontal')) }}
                 <fieldset>
-                    <label for="selectbox" class = "control-label">Item Type:</label>
-                    <select name="type" id="selectbox" class="form-control">
-                        @foreach($formTypes as $element)
-                            <option value="{{$element->type_id}}" >{{$element->type}}</option>
-                        @endforeach
-                    </select>
+                    <div class="form-group">
+                        <label for="selectbox" class = "control-label">Item Type:</label>
+                        <select name="type" id="selectbox" class="form-control">
+                            @foreach($formTypes as $element)
+                                <option value="{{$element->type_id}}" >{{$element->type}}</option>
+                            @endforeach
+                        </select>
+                    </div>
                     <div class="form-group">
                         <label for="datepicker1" class = "control-label">Start Date:</label>
                         {{ Form::text('date1', '', array('class' => 'makepointer form-control datepicker1')+['required']) }}
@@ -28,8 +29,17 @@
 
             <div class="panel panel-default">
 
+                <div class="panel-heading makebold">
+                    <span class="double-size augreentext">Collected Items:</span>
+                    <span class="augreentext">
+                        @if(isset($filterParam))
+                            {{$filterParam}}
+                        @else
+                            All
+                        @endif
+                    </span>
+                </div>
                 @if(isset($items) && sizeof($items) > 0)
-                    <div class="panel-heading double-size" style="color: green">Collected Items</div>
                     <div class="panel-body">
                         {{ Form::open(array('url' => '/editForm','method' => 'put', 'class' => 'center-text')) }}
                         <?php

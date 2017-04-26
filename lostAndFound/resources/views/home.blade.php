@@ -29,8 +29,17 @@
 
             <div class="panel panel-default">
 
+                <div class="panel-heading makebold">
+                    <span class="double-size aubluetext">Lost Items:</span>
+                    <span class="aubluetext">
+                        @if(isset($filterParam))
+                            {{$filterParam}}
+                        @else
+                            All
+                        @endif
+                    </span>
+                </div>
                 @if(isset($items) && sizeof($items) > 0)
-                <div class="panel-heading double-size" style="color: blue">Lost Items</div>
                     <div class="panel-body">
                         {{ Form::open(array('url' => '/editForm','method' => 'put', 'class' => 'center-text')) }}
                         <?php

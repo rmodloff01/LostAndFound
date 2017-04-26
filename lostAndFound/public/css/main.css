@@ -31,3 +31,15 @@ table, th, td {
 .auto-margin{
     margin : auto;
 }
+
+.makebold{
+    font-weight:bold;
+}
+
+.aubluetext{
+    color: #00467f;
+}
+
+.augreentext{
+    color: #439F3E;
+}

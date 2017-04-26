@@ -58,10 +58,10 @@
                             @endif
                         @else
                         <a class="navbar-brand" href="{{ url('/home') }}">
-                            <div style="color: blue">Lost Items</div>
+                            <div class="aubluetext makebold">Lost Items</div>
                         </a>
                         <a class="navbar-brand" href="{{ url('/collectedItems') }}">
-                            <div style="color: green">Collected Items</div>
+                            <div class="augreentext makebold">Collected Items</div>
                         </a>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
