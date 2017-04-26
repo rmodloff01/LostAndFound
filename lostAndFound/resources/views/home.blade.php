@@ -21,7 +21,7 @@
                         <label for="datepicker2" class = "control-label">End Date:</label>
                         {{ Form::text('date2', '', array('id' => 'datepicker2', 'class' => 'makepointer form-control')+['required']) }}
                     </div>
-                    {{ Form::button('Filter Records', array('type' => 'submit', 'class' => 'btn btn-info'))}}
+                    {{ Form::button('Filter Records', array('type' => 'submit', 'class' => 'btn btn-primary'))}}
                     {{ Form::token() }}
                 </fieldset>
             {{ Form::close() }}

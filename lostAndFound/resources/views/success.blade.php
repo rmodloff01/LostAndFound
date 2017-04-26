@@ -7,7 +7,7 @@
             {{$passed->email}}
           @endif
         </h3>
-      </br>
+        </>
         <h4>
           Taking you back to the home page...
         </h4>
