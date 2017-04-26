@@ -29,7 +29,7 @@
             <div class="panel panel-default">
 
                 @if(isset($items) && sizeof($items) > 0)
-                    <div class="panel-heading double-size">Collected Items</div>
+                    <div class="panel-heading double-size" style="color: green">Collected Items</div>
                     <div class="panel-body">
                         {{ Form::open(array('url' => '/editForm','method' => 'put')) }}
                         <?php

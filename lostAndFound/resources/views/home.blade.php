@@ -31,7 +31,7 @@
             <div class="panel panel-default">
 
                 @if(isset($items) && sizeof($items) > 0)
-                <div class="panel-heading double-size">Lost Items</div>
+                <div class="panel-heading double-size" style="color: blue">Lost Items</div>
                     <div class="panel-body">
                         {{ Form::open(array('url' => '/editForm','method' => 'put')) }}
                         <?php

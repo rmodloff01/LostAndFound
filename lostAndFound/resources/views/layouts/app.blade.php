@@ -37,8 +37,8 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/home') }}">
-                        View Lost Items
+                    <a class="navbar-brand" href="{{ url('/itemForm') }}">
+                        Submit Lost Item
                     </a>
                 </div>
 
@@ -57,11 +57,11 @@
                                 <li><a href="{{ route('register') }}">Add User</a></li>
                             @endif
                         @else
-                        <a class="navbar-brand" href="{{ url('/itemForm') }}">
-                            Submit Lost Item
+                        <a class="navbar-brand" href="{{ url('/home') }}">
+                            <div style="color: blue">Lost Items</div>
                         </a>
                         <a class="navbar-brand" href="{{ url('/collectedItems') }}">
-                            View Collected Items
+                            <div style="color: green">Collected Items</div>
                         </a>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
