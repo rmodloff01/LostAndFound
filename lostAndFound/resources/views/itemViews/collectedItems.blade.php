@@ -15,9 +15,9 @@
                     </select>
                     <div class="form-group">
                         <label for="datepicker1" class = "control-label">Start Date:</label>
-                        {{ Form::text('date1', '', array('id' => 'datepicker1', 'class' => 'makepointer form-control')+['required']) }}
+                        {{ Form::text('date1', '', array('class' => 'makepointer form-control datepicker1')+['required']) }}
                         <label for="datepicker2" class = "control-label">End Date:</label>
-                        {{ Form::text('date2', '', array('id' => 'datepicker2', 'class' => 'makepointer form-control')+['required']) }}
+                        {{ Form::text('date2', '', array('class' => 'makepointer form-control datepicker2')+['required']) }}
                     </div>
                     {{ Form::button('Filter Records', array('type' => 'submit', 'class' => 'btn btn-primary'))}}
                     {{ Form::token() }}
@@ -31,10 +31,10 @@
                 @if(isset($items) && sizeof($items) > 0)
                     <div class="panel-heading double-size" style="color: green">Collected Items</div>
                     <div class="panel-body">
-                        {{ Form::open(array('url' => '/editForm','method' => 'put')) }}
+                        {{ Form::open(array('url' => '/editForm','method' => 'put', 'class' => 'center-text')) }}
                         <?php
                         #print "<br /> REQUEST=<pre>"; print_r( $items );
-                        print "<table>";
+                        print "<table class='auto-margin'>";
                         print "<th>Item Type</th><th>Date Found</th><th>Collected By</th><th>Location Found</th><th>Description</th><th>Owner Info</th><th>Inventory Location</th><th>Officer</th><th>Report Number</th><th>Update Item</th>";
                         #Testing traversing of an object
                         foreach ($items as $item) {

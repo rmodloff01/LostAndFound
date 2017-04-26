@@ -32,7 +32,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `lostfound`.`items` (
   `item_id` INT NOT NULL AUTO_INCREMENT,
   `type_id` INT NOT NULL,
-  `date_found` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `date_found` DATE NOT NULL,
   `location_found` VARCHAR(100) NULL,
   `description` VARCHAR(500) NULL,
   `collected_by` VARCHAR(50) NULL,
@@ -54,7 +54,6 @@ SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
-
 insert into item_types (type) values('Keys');
 insert into item_types (type) values('Wallet');
 insert into item_types (type) values('Cell Phone');
@@ -70,4 +69,4 @@ insert into item_types (type) values('Jewelry');
 insert into item_types (type) values('Charger');
 insert into item_types (type) values('Headphones');
 insert into item_types (type) values('Notebook/Binder');
-insert into item_types (type) values('Other');
+insert into item_types (type) values('Other'); 

@@ -106,11 +106,11 @@
     <script src="{{ asset('js/jquery-ui.js') }}"></script>
     <script src="{{ asset('js/app.js') }}"></script>
     <script>
-    var $j = jQuery.noConflict();
-      $j(function() {
-        $( "#datepicker1" ).datepicker({ dateFormat: 'yy-mm-dd' });
-        $( "#datepicker2" ).datepicker({ dateFormat: 'yy-mm-dd' });
-      });
+        var $j = jQuery.noConflict();
+        $j(function() {
+            $( ".datepicker1" ).datepicker({ dateFormat: 'yy/mm/dd' });
+            $( ".datepicker2" ).datepicker({ dateFormat: 'yy-mm-dd' });
+        });
     </script>
 </body>
 </html>

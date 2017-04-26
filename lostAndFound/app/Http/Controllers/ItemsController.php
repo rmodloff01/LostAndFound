@@ -14,12 +14,12 @@ class ItemsController extends Controller {
 
     public function filterResults(Request $req){
         $types = DB::select('select * from item_types;');
-        $items = DB::select('SELECT items.*, item_types.type from items INNER JOIN item_types ON items.type_id = item_types.type_id where date_found > ? AND date_found < ? AND ? = items.type_id AND collected_by IS NULL ORDER BY date_found DESC;', [$req['date1'], $req['date2'], $req['type']]);
+        $items = DB::select('SELECT items.*, item_types.type from items INNER JOIN item_types ON items.type_id = item_types.type_id where date_found >= ? AND date_found <= ? AND ? = items.type_id AND collected_by IS NULL ORDER BY date_found DESC;', [$req['date1'], $req['date2'], $req['type']]);
         return view('home')->with('formTypes', $types)->with('items', $items);
     }
     public function filterCollectedResults(Request $req){
         $types = DB::select('select * from item_types;');
-        $items = DB::select('SELECT items.*, item_types.type from items INNER JOIN item_types ON items.type_id = item_types.type_id where date_found > ? AND date_found < ? AND ? = items.type_id AND collected_by IS NOT NULL ORDER BY date_found DESC;', [$req['date1'], $req['date2'], $req['type']]);
+        $items = DB::select('SELECT items.*, item_types.type from items INNER JOIN item_types ON items.type_id = item_types.type_id where date_found >= ? AND date_found <= ? AND ? = items.type_id AND collected_by IS NOT NULL ORDER BY date_found DESC;', [$req['date1'], $req['date2'], $req['type']]);
         return view('itemViews/collectedItems')->with('formTypes', $types)->with('items', $items);
     }
 
@@ -35,9 +35,9 @@ class ItemsController extends Controller {
 
      public function addItem(Request $req) {
          DB::insert('insert into items (type_id, location_found,
-         description, owner_info, inventory_location, officer, report_number) values
-         ( ?, ?, ?, ?, ?, ?, ?)', [$req['type'], $req['location'], $req['description'],
-         $req['ownerinfo'], $req['inventorylocation'], $req['officer'], $req['reportnumber']]);
+         description, owner_info, inventory_location, officer, report_number, date_found) values
+         ( ?, ?, ?, ?, ?, ?, ?, ?)', [$req['type'], $req['location'], $req['description'],
+         $req['ownerinfo'], $req['inventorylocation'], $req['officer'], $req['reportnumber'], $req['date']]);
 
          $MSG = "You have added an item!";
          return view('success')->with('msg', $MSG);

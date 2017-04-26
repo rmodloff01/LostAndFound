@@ -15,6 +15,10 @@
                         </select>
 					</div>
 					<div class="form-group">
+                        <label for="datepicker1" class = "control-label">Date Found:</label>
+                        {{ Form::text('date', '', array('class' => 'makepointer form-control datepicker1')+['required']) }}
+                    </div>
+					<div class="form-group">
 						<label for='description'>Description:&nbsp</label>
 						<textarea name ='description' id='description' form="addItem" rows="3" class="form-control" maxlength="500"></textarea>
 					</div>
