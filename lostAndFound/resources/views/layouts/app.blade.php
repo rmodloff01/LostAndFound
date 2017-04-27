@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="{{ asset('css/jquery-ui.css') }}">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/main.css')}} " rel='stylesheet'>
+    <link rel="shortcut icon" href="{{ asset('img/favicon.ico')}}" >
 
     <!-- Scripts -->
     <script>
