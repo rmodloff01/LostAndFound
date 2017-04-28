@@ -5,14 +5,15 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="{{ asset('css/welcome.css') }}">
+        <link rel="shortcut icon" href="{{ asset('img/favicon.ico')}}" >
         <title>{{ config('app.homeName') }}</title>
     </head>
     <body>
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
-                <div class="top-right links">
+                <div class="top links">
                     @if (Auth::check())
-                        <a href="{{ url('/home') }}">Home</a>
+                        <a href="{{ url('/home') }}">View Lost Items</a>
                     @else
                         <a href="{{ url('/login') }}">Login</a>
                         @if(config('app.allowRegister'))

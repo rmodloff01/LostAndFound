@@ -21,9 +21,8 @@ html, body {
     position: relative;
 }
 
-.top-right {
+.top {
     position: absolute;
-    right: 10px;
     top: 18px;
 }
 
