@@ -5,6 +5,8 @@
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Http\Requests;
+use App\ItemType;
+use App\Item;
 use View;
 
 class ItemsController extends Controller {
@@ -12,53 +14,68 @@ class ItemsController extends Controller {
         $this->middleware('auth');
     }
 
-    public function filterResults(Request $req){
+    public function filterLostResults(Request $req){
         $filterType = DB::select('SELECT type FROM item_types WHERE type_id=?;', [$req['type']]);
         $filterParam = $req['date1'] . " - " . $req['date2'] . ". Type: " . $filterType[0]->type;
-        $types = DB::select('SELECT * FROM item_types;');
+        $types = ItemType::getAllTypes();
         $items = DB::select('SELECT items.*, item_types.type FROM items INNER JOIN item_types ON items.type_id = item_types.type_id WHERE date_found >= ? AND date_found <= ? AND ? = items.type_id AND collected_by IS NULL ORDER BY date_found DESC;', [$req['date1'], $req['date2'], $req['type']]);
         return view('home')->with('formTypes', $types)->with('items', $items)->with('filterParam', $filterParam);
     }
     public function filterCollectedResults(Request $req){
         $filterType = DB::select('SELECT type FROM item_types WHERE type_id=?;', [$req['type']]);
         $filterParam = $req['date1'] . " - " . $req['date2'] . ". Type: " . $filterType[0]->type;
-        $types = DB::select('select * from item_types;');
+        $types = ItemType::getAllTypes();
         $items = DB::select('SELECT items.*, item_types.type FROM items INNER JOIN item_types ON items.type_id = item_types.type_id WHERE date_found >= ? AND date_found <= ? AND ? = items.type_id AND collected_by IS NOT NULL ORDER BY date_found DESC;', [$req['date1'], $req['date2'], $req['type']]);
         return view('itemViews/collectedItems')->with('formTypes', $types)->with('items', $items)->with('filterParam', $filterParam);
     }
 
-    public function showForm(){
-        $types = DB::select('SELECT * FROM item_types;');
+    public function showCreateForm(){
+        $types = ItemType::getAllTypes();
         return view('itemViews/itemForm')->with('formTypes', $types);
     }
 
     public function showEditForm(Request $req) {
-      $item = DB::select('select * from items where item_id= ?', [$req['btnid']]);
-      return view('itemViews/editForm')->with('item', $item[0]);
+        $types = ItemType::getAllTypes();
+        $item = Item::find($req['btnid']);
+        return view('itemViews/editForm')->with('item', $item)->with('formTypes', $types);
     }
 
      public function addItem(Request $req) {
-         DB::insert('INSERT INTO items (type_id, location_found,
-         description, owner_info, inventory_location, officer, report_number, date_found) VALUES
-         ( ?, ?, ?, ?, ?, ?, ?, ?)', [$req['type'], $req['location'], $req['description'],
-         $req['ownerinfo'], $req['inventorylocation'], $req['officer'], $req['reportnumber'], $req['date']]);
+
+         $newItem = new Item;
+         $newItem->type_id = $req['type'];
+         $newItem->location_found = $req['location'];
+         $newItem->description = $req['description'];
+         $newItem->owner_info = $req['ownerinfo'];
+         $newItem->inventory_location = $req['inventorylocation'];
+         $newItem->officer = $req['officer'];
+         $newItem->report_number = $req['reportnumber'];
+         $newItem->date_found = $req['date'];
+         $newItem->save();
 
          $MSG = "You have added an item!";
          return view('success')->with('msg', $MSG);
      }
 
      public function editItem(Request $req) {
-       DB::update('update items set type_id = ?, location_found= ?,
-        description= ?, owner_info= ?, collected_by = ?, inventory_location= ?, officer= ?, report_number= ? where item_id= ?',
-          [$req['type'], $req['location'], $req['description'], $req['ownerinfo'], $req['collected'],
-          $req['inventorylocation'], $req['officer'], $req['reportnumber'], $req['id']]);
+
+          $editedItem = Item::find($req['id']);
+          $editedItem->type_id = $req['type'];
+          $editedItem->collected_by = $req['collected'];
+          $editedItem->location_found = $req['location'];
+          $editedItem->description = $req['description'];
+          $editedItem->owner_info = $req['ownerinfo'];
+          $editedItem->inventory_location = $req['inventorylocation'];
+          $editedItem->officer = $req['officer'];
+          $editedItem->report_number = $req['reportnumber'];
+          $editedItem->save();
 
           $MSG = "You have updated an item!";
           return view('success')->with('msg', $MSG);
      }
 
      public function showCollectedItems(){
-       $types = DB::select('select * from item_types;');
+       $types = ItemType::getAllTypes();
        $items = DB::select("SELECT items.*, item_types.type FROM items INNER JOIN item_types ON items.type_id = item_types.type_id WHERE collected_by IS NOT NULL ORDER BY date_found DESC LIMIT 50;");
        return view('itemViews/collectedItems')->with('items', $items)->with('formTypes', $types);
      }

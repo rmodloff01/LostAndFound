@@ -12,13 +12,12 @@
 							<input type="text" name='collected' id='collected' value= "{{$item->collected_by}}" class="form-control" maxlength="50">
 						</div>
 						<div class="form-group">
-						<label for='type'>Item Type:&nbsp</label>
-							<?php
-							echo Form::select('type', array('1' => 'Keys', '2' => 'Wallet',
-										'3' => 'Cell Phones', '4' => 'Laptop/Tablets', '5' => 'AU ID - Official Gov ID Card',
-										'6' => 'Flash Drive',  '7' => 'Textbook', '8' => 'Clothing',  '9' => 'Bags - Purses/Backpack',
-										'10' => 'Debit/Credit Card',  '11' => 'Glasses', '12' => 'Jewelry',  '13' => 'Charger', '14' => 'Headphones',
-									  '15' => 'Notebook/Binder', '16' => 'Other'), $item->type_id, ['class' => 'form-control', 'id' => 'type']); ?>
+							<label for="selectbox" class = "control-label">Item Type:</label>
+	                        <select name="type" id="selectbox" class="form-control">
+	                            @foreach($formTypes as $element)
+	                                <option value="{{$element->type_id}}" @if($element->type_id==$item->type_id) selected @endif>{{$element->type}}</option>
+	                            @endforeach
+	                        </select>
 						</div>
 						<input type='hidden' name='id' value= {{$item->item_id}}>
 						<div class="form-group">
