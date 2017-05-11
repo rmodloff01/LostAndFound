@@ -3,7 +3,9 @@
 <div class="container">
     <div class="row">
         <h3>
-            Success! {{$msg}}
+            @if(isset($msg))
+                {{$msg}}
+            @endif
         </h3>
         </>
         <h4>

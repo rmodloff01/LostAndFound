@@ -25,6 +25,7 @@ class CreateItemsTable extends Migration
             $table->string('inventory_location', 45)->nullable();
             $table->string('officer', 45)->nullable();
             $table->string('report_number', 45)->nullable();
+            $table->timestamps();
             $table->engine = 'InnoDB';
         });
     }

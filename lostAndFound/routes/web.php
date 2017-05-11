@@ -22,7 +22,7 @@ Route::get('/home', 'HomeController@index');
 Route::get('/itemForm', 'ItemsController@showCreateForm');
 Route::post('/itemForm', 'ItemsController@addItem');
 
-Route::put('/editForm', 'ItemsController@showEditForm');
+Route::post('/editOrChanges', 'ItemsController@showEditOrChangesForm');
 Route::post('/editForm', 'ItemsController@editItem');
 
 Route::post('/collectedItemFilter', 'ItemsController@filterCollectedResults');

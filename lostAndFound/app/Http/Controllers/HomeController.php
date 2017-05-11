@@ -25,8 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $types = ItemType::getAllTypes();
         $items = DB::select("SELECT items.*, item_types.type FROM items INNER JOIN item_types ON items.type_id = item_types.type_id WHERE collected_by IS NULL ORDER BY date_found DESC LIMIT 50;");
-        return view('home')->with('items', $items)->with('formTypes', $types);
+        return view('home')->with('items', $items)->with('formTypes', ItemType::getAllTypes());
     }
 }
