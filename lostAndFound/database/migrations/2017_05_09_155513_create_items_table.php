@@ -19,9 +19,9 @@ class CreateItemsTable extends Migration
             $table->foreign('type_id')->references('type_id')->on('item_types');
             $table->date('date_found');
             $table->string('location_found', 100)->nullable();
-            $table->string('description', 500)->nullable();
+            $table->string('description', 250)->nullable();
             $table->string('collected_by', 50)->nullable();
-            $table->string('owner_info', 500)->nullable();
+            $table->string('owner_info', 250)->nullable();
             $table->string('inventory_location', 45)->nullable();
             $table->string('officer', 45)->nullable();
             $table->string('report_number', 45)->nullable();

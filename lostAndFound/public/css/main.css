@@ -1,12 +1,10 @@
 
 /*DROPDOWN STYLES*/
 .dropdown-menu > li > .remove-user {
-    color: red;
-    cursor: pointer;
+    color: red !important;
 }
 .dropdown-menu > li > .add-user {
-    color: #439F3E;
-    cursor: pointer;
+    color: #439F3E !important;
 }
 /* END DROPDOWN STYLES*/
 
@@ -33,13 +31,21 @@ table, th, td {
 }
 
 .makebold{
-    font-weight:bold;
+    font-weight : bold;
 }
 
 .aubluetext{
-    color: #00467f;
+    color : #00467f;
 }
 
 .augreentext{
-    color: #439F3E;
+    color : #439F3E;
+}
+
+.responsivetable {
+    overflow-x : auto;
+}
+
+tr:nth-child(2n+3) {
+    background: #e6e6e6 ;
 }

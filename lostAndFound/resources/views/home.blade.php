@@ -47,11 +47,11 @@
                     </span>
                 </div>
                 @if(isset($items) && sizeof($items) > 0)
-                    <div class="panel-body">
+                    <div class="panel-body responsivetable">
                         {{ Form::open(array('url' => '/editOrChanges','method' => 'post', 'class' => 'center-text')) }}
                         <?php
                         print "<table class='auto-margin'>";
-                        print "<th>Item Type</th><th>Date Found</th><th>Location Found</th><th>Description</th><th>Owner Info</th><th>Inventory Location</th><th>Officer</th><th>Report Number</th><th>Update Item</th><th>View Changes</th>";
+                        print "<tr><th>Item Type</th><th>Date Found</th><th>Location Found</th><th>Description</th><th>Owner Info</th><th>Inventory Location</th><th>Officer</th><th>Report Number</th><th>Update Item</th><th>View Changes</th></tr>";
                         foreach ($items as $item) {
                             print "<tr><td>";
                             print "$item->type";

@@ -9,10 +9,10 @@
                 </div>
 
                 @if(isset($changes) && sizeof($changes) > 0)
-                    <div class="panel-body">
+                    <div class="panel-body responsivetable">
                         <?php
                         print "<table class='auto-margin'>";
-                        print "<th>Field Changed</th><th>Old Value</th><th>New Value</th><th>User</th><th>Changed At</th>";
+                        print "<tr><th>Field Changed</th><th>Old Value</th><th>New Value</th><th>User</th><th>Changed At</th></tr>";
                         foreach ($changes as $change) {
                           print "<tr><td>";
                           print "$change->field_changed";

@@ -21,7 +21,7 @@
 					<input type='hidden' name='id' value= {{$item->item_id}}>
 					<div class="form-group">
 						<label for='description'>Description:&nbsp</label>
-						<textarea name ='description' id='description' form="editItem" rows="3" class="form-control" maxlength="500">{{$item->description}}</textarea>
+						<textarea name ='description' id='description' form="editItem" rows="3" class="form-control" maxlength="250">{{$item->description}}</textarea>
 					</div>
 					<div class="form-group">
 						<label for='location'>Location Found:&nbsp</label>
@@ -35,7 +35,7 @@
 					</div>
 					<div class="form-group">
 						<label for='ownerinfo'>Owner Info:&nbsp</label>
-						<textarea name ='ownerinfo' id='ownerinfo' form="editItem" rows="3" class="form-control" maxlength="500"> {{$item->owner_info}} </textarea>
+						<textarea name ='ownerinfo' id='ownerinfo' form="editItem" rows="3" class="form-control" maxlength="250"> {{$item->owner_info}} </textarea>
 					</div>
 					<div class="form-group">
 						<label for='inventorylocation'>Inventory Location:&nbsp</label>

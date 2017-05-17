@@ -58,12 +58,6 @@
                                 <li><a href="{{ route('register') }}">Add User</a></li>
                             @endif
                         @else
-                        <a class="navbar-brand" href="{{ url('/home') }}">
-                            <div class="aubluetext makebold">Lost Items</div>
-                        </a>
-                        <a class="navbar-brand" href="{{ url('/collectedItems') }}">
-                            <div class="augreentext makebold">Collected Items</div>
-                        </a>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>
@@ -93,6 +87,12 @@
                                     </li>
                                 </ul>
                             </li>
+                            <a class="navbar-brand" href="{{ url('/home') }}">
+                                <div class="aubluetext makebold">Lost Items</div>
+                            </a>
+                            <a class="navbar-brand" href="{{ url('/collectedItems') }}">
+                                <div class="augreentext makebold">Collected Items</div>
+                            </a>
                         @endif
                     </ul>
                 </div>
@@ -109,7 +109,7 @@
     <script>
         var $j = jQuery.noConflict();
         $j(function() {
-            $( ".datepicker1" ).datepicker({ dateFormat: 'yy/mm/dd' });
+            $( ".datepicker1" ).datepicker({ dateFormat: 'yy-mm-dd' });
             $( ".datepicker2" ).datepicker({ dateFormat: 'yy-mm-dd' });
         });
     </script>
